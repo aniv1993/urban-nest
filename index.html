@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Nest — Капсульные дома на природе | Аренда дизайнерских мини-домов</title>
+    <meta name="description" content="Urban Nest — аренда дизайнерских капсульных мини-домов в лесу. Сбежать из города за 60 минут. Комфорт отеля в дикой природе. Московская и Ленинградская области.">
+    <meta name="keywords" content="капсульные дома, аренда, глэмпинг, мини-дом, лес, природа, отдых, Московская область, Ленинградская область">
+    <meta property="og:title" content="Urban Nest — Сбежать из города за 60 минут">
+    <meta property="og:description" content="Уютные дизайнерские капсульные дома на природе с привычным комфортом. 10 домов в двух регионах.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://urbannest.ru">
+    <meta property="og:image" content="images/hero.png">
+    <link rel="canonical" href="https://urbannest.ru">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-forest': '#1A3329',
+                        'warm-sand': '#D4C4A8',
+                        'charcoal': '#2C2C2C',
+                        'accent-gold': '#C9A96E',
+                        'off-white': '#F8F5F0',
+                        'moss-green': '#5A7A60',
+                        'dark-moss': '#3D5A45',
+                    },
+                    fontFamily: {
+                        'display': ['Unbounded', 'sans-serif'],
+                        'body': ['Outfit', 'sans-serif'],
+                        'accent': ['Space Grotesk', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+
+    <!-- Lenis Smooth Scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-off-white font-body text-charcoal overflow-x-hidden">
+
+    <!-- Custom Cursor (desktop only) -->
+    <div id="cursor-dot" class="custom-cursor cursor-dot"></div>
+    <div id="cursor-ring" class="custom-cursor cursor-ring"></div>
+
+    <!-- ============================================ -->
+    <!-- HEADER / NAVIGATION -->
+    <!-- ============================================ -->
+    <header id="header" class="fixed top-0 left-0 w-full z-[70] transition-all duration-500">
+        <nav class="flex items-center justify-between px-6 md:px-12 lg:px-20 py-4 md:py-6">
+            <!-- Logo -->
+            <a href="#hero" id="logo-link" class="font-display font-bold text-xl md:text-2xl text-off-white tracking-tight z-50">
+                Urban<span class="text-accent-gold">Nest</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <ul class="hidden lg:flex items-center gap-8 font-accent text-sm text-off-white/80">
+                <li><a href="#about" class="nav-link hover:text-accent-gold transition-colors duration-300">О проекте</a></li>
+                <li><a href="#houses" class="nav-link hover:text-accent-gold transition-colors duration-300">Дома</a></li>
+                <li><a href="#experience" class="nav-link hover:text-accent-gold transition-colors duration-300">Опыт</a></li>
+                <li><a href="#locations" class="nav-link hover:text-accent-gold transition-colors duration-300">Локации</a></li>
+                <li><a href="#reviews" class="nav-link hover:text-accent-gold transition-colors duration-300">Отзывы</a></li>
+                <li><a href="#booking" class="nav-link hover:text-accent-gold transition-colors duration-300">Бронирование</a></li>
+            </ul>
+
+            <!-- CTA Button -->
+            <a href="#booking" class="hidden lg:inline-flex items-center gap-2 bg-accent-gold text-deep-forest font-accent font-semibold text-sm px-6 py-3 rounded-full hover:bg-accent-gold/90 transition-all duration-300 hover:scale-105">
+                Забронировать
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="lg:hidden z-50 w-10 h-10 flex flex-col items-center justify-center gap-1.5" aria-label="Открыть меню">
+                <span class="menu-line w-7 h-0.5 bg-off-white transition-all duration-300"></span>
+                <span class="menu-line w-5 h-0.5 bg-off-white transition-all duration-300"></span>
+                <span class="menu-line w-7 h-0.5 bg-off-white transition-all duration-300"></span>
+            </button>
+    </header>
+
+    <!-- Mobile Menu (outside header to avoid backdrop-filter stacking context bug) -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-deep-forest flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-500 lg:hidden">
+        <ul class="flex flex-col items-center gap-6 font-display text-2xl text-off-white">
+            <li><a href="#about" class="mobile-nav-link hover:text-accent-gold transition-colors">О проекте</a></li>
+            <li><a href="#houses" class="mobile-nav-link hover:text-accent-gold transition-colors">Дома</a></li>
+            <li><a href="#experience" class="mobile-nav-link hover:text-accent-gold transition-colors">Опыт</a></li>
+            <li><a href="#locations" class="mobile-nav-link hover:text-accent-gold transition-colors">Локации</a></li>
+            <li><a href="#reviews" class="mobile-nav-link hover:text-accent-gold transition-colors">Отзывы</a></li>
+        </ul>
+        <a href="#booking" class="mobile-nav-link bg-accent-gold text-deep-forest font-accent font-semibold text-lg px-8 py-4 rounded-full">
+            Забронировать
+        </a>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECTION 1: HERO (Split-Screen) — ЗАКОММЕНТИРОВАН -->
+    <!-- ============================================ -->
+    <!--
+    <section id="hero" class="relative min-h-screen flex flex-col lg:flex-row">
+        <div class="relative w-full lg:w-1/2 h-[60vh] lg:h-auto order-1 lg:order-1 overflow-hidden">
+            <img src="images/hero.png" alt="Стеклянный капсульный дом в берёзовом лесу на закате — Urban Nest" class="absolute inset-0 w-full h-full object-cover hero-parallax" loading="eager">
+            <div class="absolute inset-0 bg-gradient-to-t from-deep-forest/40 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-deep-forest/30"></div>
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 lg:hidden flex flex-col items-center gap-2 text-off-white/60 animate-bounce">
+                <span class="font-accent text-xs">Листайте</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+            </div>
+        </div>
+        <div class="relative z-10 w-full lg:w-1/2 bg-deep-forest flex flex-col items-center justify-center px-6 md:px-12 lg:px-16 xl:px-20 py-32 lg:py-20 order-2 lg:order-2">
+            <div class="max-w-xl w-full">
+                <p class="font-accent text-accent-gold text-sm md:text-base tracking-widest uppercase mb-6 reveal-up">Капсульные дома на природе</p>
+                <h1 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-off-white leading-[1.1] mb-6 reveal-up delay-1">
+                    Сбежать<br>из города<br>за <span class="text-accent-gold">60 минут</span>
+                </h1>
+                <p class="font-body text-lg md:text-xl text-off-white/70 mb-10 max-w-md reveal-up delay-2">
+                    Уютные дизайнерские дома на природе с привычным комфортом. Без соседей. Без суеты.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 reveal-up delay-3">
+                    <a href="#houses" class="inline-flex items-center justify-center gap-2 bg-accent-gold text-deep-forest font-accent font-semibold text-base px-8 py-4 rounded-full hover:bg-accent-gold/90 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-accent-gold/20">
+                        Выбрать дом
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                    <a href="#about" class="inline-flex items-center justify-center gap-2 border border-off-white/30 text-off-white font-accent text-base px-8 py-4 rounded-full hover:border-accent-gold hover:text-accent-gold transition-all duration-300">
+                        Узнать больше
+                    </a>
+                </div>
+                <div class="flex gap-8 mt-14 pt-8 border-t border-off-white/10 reveal-up delay-4">
+                    <div>
+                        <span class="font-display font-bold text-3xl text-accent-gold">10</span>
+                        <p class="font-accent text-sm text-off-white/50 mt-1">уникальных домов</p>
+                    </div>
+                    <div>
+                        <span class="font-display font-bold text-3xl text-accent-gold">2</span>
+                        <p class="font-accent text-sm text-off-white/50 mt-1">региона</p>
+                    </div>
+                    <div>
+                        <span class="font-display font-bold text-3xl text-accent-gold">1500+</span>
+                        <p class="font-accent text-sm text-off-white/50 mt-1">счастливых гостей</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- ============================================ -->
+    <!-- SECTION 1: HERO (Full-Screen Background) -->
+    <!-- ============================================ -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <img src="images/hero.png" alt="Стеклянный капсульный дом в берёзовом лесу на закате — Urban Nest" class="absolute inset-0 w-full h-full object-cover hero-parallax" loading="eager">
+
+        <!-- Dark semi-transparent overlay -->
+        <div class="absolute inset-0 bg-deep-forest/60"></div>
+        <!-- Bottom gradient for smooth transition to next section -->
+        <div class="absolute inset-0 bg-gradient-to-t from-deep-forest/80 via-transparent to-deep-forest/30"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center px-6 md:px-12 py-32 max-w-4xl mx-auto">
+            <p class="font-accent text-accent-gold text-sm md:text-base tracking-widest uppercase mb-6 reveal-up">Капсульные дома на природе</p>
+            <h1 class="font-display font-bold text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-off-white leading-[1.1] mb-6 reveal-up delay-1">
+                Сбежать из города<br>за <span class="text-accent-gold">60 минут</span>
+            </h1>
+            <p class="font-body text-lg md:text-xl text-off-white/80 mb-10 max-w-2xl mx-auto reveal-up delay-2">
+                Уютные дизайнерские дома на природе с привычным комфортом. Без соседей. Без суеты.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center reveal-up delay-3">
+                <a href="#houses" class="inline-flex items-center justify-center gap-2 bg-accent-gold text-deep-forest font-accent font-semibold text-base px-8 py-4 rounded-full hover:bg-accent-gold/90 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-accent-gold/20">
+                    Выбрать дом
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+                <a href="#about" class="inline-flex items-center justify-center gap-2 border border-off-white/40 text-off-white font-accent text-base px-8 py-4 rounded-full hover:border-accent-gold hover:text-accent-gold transition-all duration-300 backdrop-blur-sm">
+                    Узнать больше
+                </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="flex gap-8 md:gap-12 justify-center mt-16 pt-8 border-t border-off-white/15 reveal-up delay-4">
+                <div>
+                    <span class="font-display font-bold text-3xl md:text-4xl text-accent-gold">10</span>
+                    <p class="font-accent text-sm text-off-white/60 mt-1">уникальных домов</p>
+                </div>
+                <div>
+                    <span class="font-display font-bold text-3xl md:text-4xl text-accent-gold">2</span>
+                    <p class="font-accent text-sm text-off-white/60 mt-1">региона</p>
+                </div>
+                <div>
+                    <span class="font-display font-bold text-3xl md:text-4xl text-accent-gold">1500+</span>
+                    <p class="font-accent text-sm text-off-white/60 mt-1">счастливых гостей</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 inset-x-0 flex justify-center z-10">
+            <div class="flex flex-col items-center gap-2 text-off-white/50 animate-bounce">
+                <span class="font-accent text-xs tracking-wider">Листайте</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 2: ABOUT (Original) — ЗАКОММЕНТИРОВАН -->
+    <!-- ============================================ -->
+    <!--
+    <section id="about" class="relative py-20 md:py-32 bg-off-white">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-20">
+                <div class="reveal-up">
+                    <p class="font-accent text-accent-gold text-sm tracking-widest uppercase mb-4">О проекте</p>
+                    <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-deep-forest leading-tight">
+                        Мы создали место,<br>куда хочется <span class="text-accent-gold">сбежать</span>
+                    </h2>
+                </div>
+                <div class="reveal-up delay-1">
+                    <p class="text-lg text-charcoal/70 leading-relaxed mb-6">Urban Nest — это не просто аренда домов. Это философия перезагрузки.</p>
+                    <p class="text-lg text-charcoal/70 leading-relaxed">Каждый дом — авторский проект с уникальным характером.</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-deep-forest rounded-2xl p-8 md:p-10"><h3 class="font-display font-semibold text-xl text-off-white mb-3">Баланс</h3></div>
+                <div class="bg-deep-forest rounded-2xl p-8 md:p-10"><h3 class="font-display font-semibold text-xl text-off-white mb-3">Тишина</h3></div>
+                <div class="bg-deep-forest rounded-2xl p-8 md:p-10"><h3 class="font-display font-semibold text-xl text-off-white mb-3">Перезагрузка</h3></div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- ============================================ -->
+    <!-- SECTION 2: ABOUT (Photo-Rich Editorial) -->
+    <!-- ============================================ -->
+    <section id="about" class="relative py-20 md:py-32 bg-off-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+
+            <!-- Row 1: Aerial Photo + Intro Text -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center mb-16 md:mb-24">
+                <div class="overflow-hidden rounded-2xl reveal-up">
+                    <img src="images/about-nature.png" alt="Посёлок Urban Nest — капсульные дома среди леса с высоты" class="w-full h-[350px] md:h-[450px] object-cover hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="reveal-up delay-1">
+                    <p class="font-accent text-accent-gold text-sm tracking-widest uppercase mb-4">О проекте</p>
+                    <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-deep-forest leading-tight mb-6">
+                        Мы создали место,<br>куда хочется <span class="text-accent-gold">сбежать</span>
+                    </h2>
+                    <p class="text-lg text-charcoal/70 leading-relaxed mb-6">
+                        Urban Nest — это не просто аренда домов. Это философия перезагрузки. Мы нашли баланс между дикой природой и привычным комфортом, чтобы вы могли отключиться от города и включить себя.
+                    </p>
+                    <p class="text-lg text-charcoal/70 leading-relaxed">
+                        10 авторских домов в двух живописных регионах. Каждый — со своим характером, атмосферой и историей.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Row 2: Text + Interior Photo (reversed) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center mb-16 md:mb-24">
+                <div class="order-2 lg:order-1 reveal-up">
+                    <h3 class="font-display font-semibold text-2xl md:text-3xl text-deep-forest leading-tight mb-6">
+                        Каждый дом — как <span class="text-accent-gold">номер-люкс</span> в сердце леса
+                    </h3>
+                    <p class="text-lg text-charcoal/70 leading-relaxed mb-6">
+                        Панорамные окна, дизайнерская мебель, тёплые полы, кофемашина и постельное бельё из льна. Забудьте о компромиссах между природой и комфортом — у нас и то, и другое.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-charcoal/70">
+                            <span class="w-8 h-8 rounded-full bg-accent-gold/10 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            </span>
+                            Панорамные окна с видом на лес
+                        </li>
+                        <li class="flex items-center gap-3 text-charcoal/70">
+                            <span class="w-8 h-8 rounded-full bg-accent-gold/10 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            </span>
+                            Дизайнерская мебель и тёплые полы
+                        </li>
+                        <li class="flex items-center gap-3 text-charcoal/70">
+                            <span class="w-8 h-8 rounded-full bg-accent-gold/10 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            </span>
+                            Кофемашина и мини-кухня
+                        </li>
+                        <li class="flex items-center gap-3 text-charcoal/70">
+                            <span class="w-8 h-8 rounded-full bg-accent-gold/10 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            </span>
+                            Минимум 200 м до ближайшего соседа
+                        </li>
+                    </ul>
+                </div>
+                <div class="order-1 lg:order-2 overflow-hidden rounded-2xl reveal-up delay-1">
+                    <img src="images/about-interior.png" alt="Интерьер капсульного дома Urban Nest — дизайнерская мебель и панорамные окна" class="w-full h-[350px] md:h-[450px] object-cover hover:scale-105 transition-transform duration-700">
+                </div>
+            </div>
+
+            <!-- Row 3: Terrace Photo + Philosophy -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+                <div class="overflow-hidden rounded-2xl reveal-up">
+                    <img src="images/about-terrace.png" alt="Терраса капсульного дома — утренний кофе в лесу" class="w-full h-[350px] md:h-[450px] object-cover hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="reveal-up delay-1">
+                    <h3 class="font-display font-semibold text-2xl md:text-3xl text-deep-forest leading-tight mb-6">
+                        Не отпуск. <span class="text-accent-gold">Перезагрузка.</span>
+                    </h3>
+                    <p class="text-lg text-charcoal/70 leading-relaxed mb-6">
+                        Мы не продаём ночи в домике. Мы создаём пространство, где городской шум наконец замолкает. Где утро начинается с кофе на террасе, а не с push-уведомлений.
+                    </p>
+                    <p class="text-lg text-charcoal/70 leading-relaxed">
+                        Романтика, workation или digital detox — выберите свой сценарий. Мы продумали каждый, чтобы вы просто приехали и переключились.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 2.5: PILLARS (Why Urban Nest) -->
+    <!-- ============================================ -->
+    <section class="relative py-20 md:py-28 bg-deep-forest">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-14 reveal-up">
+                <p class="font-accent text-accent-gold text-sm tracking-widest uppercase mb-4">Почему мы</p>
+                <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-off-white">
+                    Три принципа <span class="text-accent-gold">Urban Nest</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="experience-card bg-off-white/5 backdrop-blur-sm border border-off-white/10 rounded-2xl p-8 md:p-10 reveal-up delay-1 hover:bg-off-white/10 transition-all duration-500">
+                    <div class="exp-icon w-14 h-14 rounded-full bg-accent-gold/10 flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                    </div>
+                    <h3 class="font-display font-semibold text-xl text-off-white mb-3">Баланс</h3>
+                    <p class="text-off-white/60 leading-relaxed">Комфорт пятизвёздочного отеля в сердце леса. Никаких компромиссов — ни в одну сторону.</p>
+                </div>
+                <div class="experience-card bg-off-white/5 backdrop-blur-sm border border-off-white/10 rounded-2xl p-8 md:p-10 reveal-up delay-2 hover:bg-off-white/10 transition-all duration-500">
+                    <div class="exp-icon w-14 h-14 rounded-full bg-accent-gold/10 flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                    </div>
+                    <h3 class="font-display font-semibold text-xl text-off-white mb-3">Тишина</h3>
+                    <p class="text-off-white/60 leading-relaxed">Полная уединённость. Никаких соседей, шума дорог и уведомлений. Только вы и природа.</p>
+                </div>
+                <div class="experience-card bg-off-white/5 backdrop-blur-sm border border-off-white/10 rounded-2xl p-8 md:p-10 reveal-up delay-3 hover:bg-off-white/10 transition-all duration-500">
+                    <div class="exp-icon w-14 h-14 rounded-full bg-accent-gold/10 flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                    </div>
+                    <h3 class="font-display font-semibold text-xl text-off-white mb-3">Перезагрузка</h3>
+                    <p class="text-off-white/60 leading-relaxed">Готовые сценарии отдыха: романтика, workation, digital detox. Мы продумали всё за вас.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 3: HOUSES (Bento Grid) -->
+    <!-- ============================================ -->
+    <section id="houses" class="relative py-20 md:py-32 bg-warm-sand/30">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <!-- Section header -->
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12 reveal-up">
+                <div>
+                    <p class="font-accent text-accent-gold text-sm tracking-widest uppercase mb-4">Каталог</p>
+                    <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-deep-forest">Наши дома</h2>
+                </div>
+                <p class="text-charcoal/60 mt-4 md:mt-0 max-w-md font-body">10 уникальных домов в двух регионах. Каждый — с собственным характером и атмосферой.</p>
+            </div>
+
+            <!-- Region Tabs -->
+            <div class="flex gap-4 mb-10 reveal-up delay-1">
+                <button class="region-tab active font-accent font-semibold text-sm px-6 py-3 rounded-full transition-all duration-300" data-region="moscow">
+                    Московская область
+                    <span class="ml-1 text-xs opacity-60">6</span>
+                </button>
+                <button class="region-tab font-accent font-semibold text-sm px-6 py-3 rounded-full transition-all duration-300" data-region="spb">
+                    Ленинградская область
+                    <span class="ml-1 text-xs opacity-60">4</span>
+                </button>
+            </div>
+
+            <!-- Moscow Region Houses - Bento Grid -->
+            <div id="houses-moscow" class="houses-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 transition-all duration-500">
+                <!-- Card 1: Forest Light (Large) -->
+                <div class="house-card group relative overflow-hidden rounded-2xl bg-deep-forest cursor-pointer lg:col-span-2 lg:row-span-2 reveal-up" data-house="forest-light">
+                    <div class="aspect-[4/3] lg:aspect-auto lg:h-full overflow-hidden">
+                        <img src="images/forest-light.png" alt="Forest Light — деревянный капсульный дом в хвойном лесу" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-deep-forest via-deep-forest/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="font-accent text-xs text-accent-gold bg-accent-gold/10 px-3 py-1 rounded-full">Популярный</span>
+                        </div>
+                        <h3 class="font-display font-bold text-2xl md:text-3xl text-off-white mb-2">Лесной Свет</h3>
+                        <p class="text-off-white/60 text-sm mb-4">Классический лесной дом · 25 м² · до 2 гостей</p>
+                        <div class="flex items-center justify-between">
+                            <p class="font-accent font-bold text-xl text-accent-gold">17 800 ₽ <span class="text-sm font-normal text-off-white/40">/ ночь</span></p>
+                            <span class="inline-flex items-center gap-1 text-off-white/60 text-sm group-hover:text-accent-gold transition-colors">
+                                Подробнее
+                                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Glass House -->
+                <div class="house-card group relative overflow-hidden rounded-2xl bg-deep-forest cursor-pointer reveal-up delay-1" data-house="glass-house">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="images/glass-house.png" alt="Glass House — панорамный стеклянный капсульный дом" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-deep-forest via-deep-forest/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 class="font-display font-semibold text-xl text-off-white mb-1">Панорамный</h3>
+                        <p class="text-off-white/50 text-xs mb-3">А-фрейм · 35 м² · до 2 гостей</p>
+                        <p class="font-accent font-bold text-lg text-accent-gold">25 000 ₽ <span class="text-xs font-normal text-off-white/40">/ ночь</span></p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Pine Cabin -->
+                <div class="house-card group relative overflow-hidden rounded-2xl bg-deep-forest cursor-pointer reveal-up delay-2" data-house="pine-cabin">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="images/pine-cabin.png" alt="Pine Cabin — скандинавский капсульный дом" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-deep-forest via-deep-forest/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 class="font-display font-semibold text-xl text-off-white mb-1">Сосновый Домик</h3>
+                        <p class="text-off-white/50 text-xs mb-3">Скандинавский · 22 м² · до 2 гостей</p>
+                        <p class="font-accent font-bold text-lg text-accent-gold">15 000 ₽ <span class="text-xs font-normal text-off-white/40">/ ночь</span></p>
+                    </div>
+                </div>
+
+                <!-- Card 4: Horizon -->
+                <div class="house-card group relative overflow-hidden rounded-2xl bg-deep-forest cursor-pointer reveal-up delay-1" data-house="horizon">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="images/horizon.png" alt="Horizon — капсульный дом с террасой и видом на лес" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-deep-forest via-deep-forest/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 class="font-display font-semibold text-xl text-off-white mb-1">Горизонт</h3>
+                        <p class="text-off-white/50 text-xs mb-3">С террасой · 30 м² · до 3 гостей</p>
+                        <p class="font-accent font-bold text-lg text-accent-gold">21 800 ₽ <span class="text-xs font-normal text-off-white/40">/ ночь</span></p>
+                    </div>
+                </div>
+
+                <!-- Card 5: Moss Retreat -->
+                <div class="house-card group relative overflow-hidden rounded-2xl bg-deep-forest cursor-pointer reveal-up delay-2" data-house="moss-retreat">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="images/moss-retreat.png" alt="Moss Retreat — капсульный дом для digital detox" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-deep-forest via-deep-forest/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="font-accent text-xs text-moss-green bg-moss-green/10 px-3 py-1 rounded-full">Detox</span>
+                        </div>
+                        <h3 class="font-display font-semibold text-xl text-off-white mb-1">Кедровый</h3>
+                        <p class="text-off-white/50 text-xs mb-3">Уютный · 20 м² · до 2 гостей</p>
+                        <p class="font-accent font-bold text-lg text-accent-gold">18 400 ₽ <span class="text-xs font-normal text-off-white/40">/ ночь</span></p>
+                    </div>
+                </div>
+
+                <!-- Card 6: Oak Studio -->
+                <div class="house-card group relative overflow-hidden rounded-2xl bg-deep-forest cursor-pointer reveal-up delay-3" data-house="oak-studio">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="images/oak-studio.png" alt="Oak Studio — капсульный дом для workation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-deep-forest via-deep-forest/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="font-accent text-xs text-accent-gold bg-accent-gold/10 px-3 py-1 rounded-full">Workation</span>
+                        </div>
+                        <h3 class="font-display font-semibold text-xl text-off-white mb-1">Дубовая Студия</h3>
+                        <p class="text-off-white/50 text-xs mb-3">Workation-студия · 40 м² · до 2 гостей</p>
+                        <p class="font-accent font-bold text-lg text-accent-gold">23 600 ₽ <span class="text-xs font-normal text-off-white/40">/ ночь</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SPB Region Houses -->
+            <div id="houses-spb" class="houses-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 hidden transition-all duration-500">
+                <!-- Card 1: Lake View (Large) -->
+                <div class="house-card group relative overflow-hidden rounded-2xl bg-deep-forest cursor-pointer lg:col-span-2 lg:row-span-2 reveal-up" data-house="lake-view">
+                    <div class="aspect-[4/3] lg:aspect-auto lg:h-full overflow-hidden">
+                        <img src="images/lake-view.png" alt="Lake View — капсульный дом у озера в Ленинградской области" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-deep-forest via-deep-forest/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="font-accent text-xs text-accent-gold bg-accent-gold/10 px-3 py-1 rounded-full">Хит сезона</span>
+                        </div>
+                        <h3 class="font-display font-bold text-2xl md:text-3xl text-off-white mb-2">Озёрный</h3>
+                        <p class="text-off-white/60 text-sm mb-4">Дом у озера · 30 м² · до 2 гостей</p>
+                        <div class="flex items-center justify-between">
+                            <p class="font-accent font-bold text-xl text-accent-gold">23 000 ₽ <span class="text-sm font-normal text-off-white/40">/ ночь</span></p>
+                            <span class="inline-flex items-center gap-1 text-off-white/60 text-sm group-hover:text-accent-gold transition-colors">
+                                Подробнее
+                                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Birch House -->
+                <div class="house-card group relative overflow-hidden rounded-2xl bg-deep-forest cursor-pointer reveal-up delay-1" data-house="birch-house">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="images/birch-house.png" alt="Birch House — капсульный дом в берёзовой роще" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-deep-forest via-deep-forest/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 class="font-display font-semibold text-xl text-off-white mb-1">Берёзовый Дом</h3>
+                        <p class="text-off-white/50 text-xs mb-3">Берёзовая роща · 25 м² · до 2 гостей</p>
+                        <p class="font-accent font-bold text-lg text-accent-gold">17 800 ₽ <span class="text-xs font-normal text-off-white/40">/ ночь</span></p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Nordic Shell -->
+                <div class="house-card group relative overflow-hidden rounded-2xl bg-deep-forest cursor-pointer reveal-up delay-2" data-house="nordic-shell">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="images/nordic-shell.png" alt="Nordic Shell — минималистичный капсульный дом" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-deep-forest via-deep-forest/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 class="font-display font-semibold text-xl text-off-white mb-1">Северная Раковина</h3>
+                        <p class="text-off-white/50 text-xs mb-3">Минималистичный · 28 м² · до 2 гостей</p>
+                        <p class="font-accent font-bold text-lg text-accent-gold">19 600 ₽ <span class="text-xs font-normal text-off-white/40">/ ночь</span></p>
+                    </div>
+                </div>
+
+                <!-- Card 4: Aurora Loft -->
+                <div class="house-card group relative overflow-hidden rounded-2xl bg-deep-forest cursor-pointer lg:col-span-3 reveal-up delay-3" data-house="aurora-loft">
+                    <div class="aspect-[21/9] overflow-hidden">
+                        <img src="images/aurora-loft.png" alt="Aurora Loft — капсульный дом с мансардой" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-deep-forest via-deep-forest/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="font-display font-bold text-2xl text-off-white mb-1">Аврора Лофт</h3>
+                                <p class="text-off-white/60 text-sm">С мансардой · 38 м² · до 3 гостей</p>
+                            </div>
+                            <p class="font-accent font-bold text-xl text-accent-gold">26 400 ₽ <span class="text-sm font-normal text-off-white/40">/ ночь</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 4: EXPERIENCE -->
+    <!-- ============================================ -->
+    <section id="experience" class="relative py-20 md:py-32 bg-deep-forest overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <!-- Section header -->
+            <div class="text-center mb-16 reveal-up">
+                <p class="font-accent text-accent-gold text-sm tracking-widest uppercase mb-4">Уникальный опыт</p>
+                <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-off-white mb-6">
+                    Это не просто аренда.<br>Это <span class="text-accent-gold">переключение</span>.
+                </h2>
+                <p class="text-off-white/50 text-lg max-w-2xl mx-auto">Каждая деталь продумана, чтобы вы забыли о городе и перезагрузились</p>
+            </div>
+
+            <!-- Experience Cards - Responsive Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="experience-card bg-off-white/5 backdrop-blur-sm border border-off-white/10 rounded-2xl p-8 hover:bg-off-white/10 transition-all duration-500 reveal-up delay-1">
+                    <div class="exp-icon w-16 h-16 rounded-2xl bg-accent-gold/10 flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
+                    </div>
+                    <h3 class="font-display font-semibold text-xl text-off-white mb-3">Панорамные окна</h3>
+                    <p class="text-off-white/50 leading-relaxed">Просыпайтесь с видом на лес. Каждый дом спроектирован так, чтобы природа была главным интерьером.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="experience-card bg-off-white/5 backdrop-blur-sm border border-off-white/10 rounded-2xl p-8 hover:bg-off-white/10 transition-all duration-500 reveal-up delay-2">
+                    <div class="exp-icon w-16 h-16 rounded-2xl bg-accent-gold/10 flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/></svg>
+                    </div>
+                    <h3 class="font-display font-semibold text-xl text-off-white mb-3">Уединённость</h3>
+                    <p class="text-off-white/50 leading-relaxed">Минимум 200 метров между домами. Ваш личный уголок леса без соседей и посторонних звуков.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="experience-card bg-off-white/5 backdrop-blur-sm border border-off-white/10 rounded-2xl p-8 hover:bg-off-white/10 transition-all duration-500 reveal-up delay-3">
+                    <div class="exp-icon w-16 h-16 rounded-2xl bg-accent-gold/10 flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+                    </div>
+                    <h3 class="font-display font-semibold text-xl text-off-white mb-3">Авторский дизайн</h3>
+                    <p class="text-off-white/50 leading-relaxed">Каждый дом — уникальный проект. Натуральные материалы, дизайнерская мебель, продуманная эргономика.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="experience-card bg-off-white/5 backdrop-blur-sm border border-off-white/10 rounded-2xl p-8 hover:bg-off-white/10 transition-all duration-500 reveal-up delay-1">
+                    <div class="exp-icon w-16 h-16 rounded-2xl bg-accent-gold/10 flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="font-display font-semibold text-xl text-off-white mb-3">Сценарии отдыха</h3>
+                    <p class="text-off-white/50 leading-relaxed">Романтика, workation, detox — выберите свой формат. Мы подготовим всё: от свечей до Wi-Fi.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="experience-card bg-off-white/5 backdrop-blur-sm border border-off-white/10 rounded-2xl p-8 hover:bg-off-white/10 transition-all duration-500 reveal-up delay-2">
+                    <div class="exp-icon w-16 h-16 rounded-2xl bg-accent-gold/10 flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                    </div>
+                    <h3 class="font-display font-semibold text-xl text-off-white mb-3">Доп. услуги</h3>
+                    <p class="text-off-white/50 leading-relaxed">Баня на дровах, завтрак из фермерских продуктов, проектор с кино под звёздами.</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="experience-card bg-off-white/5 backdrop-blur-sm border border-off-white/10 rounded-2xl p-8 hover:bg-off-white/10 transition-all duration-500 reveal-up delay-3">
+                    <div class="exp-icon w-16 h-16 rounded-2xl bg-accent-gold/10 flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                    </div>
+                    <h3 class="font-display font-semibold text-xl text-off-white mb-3">Подписка</h3>
+                    <p class="text-off-white/50 leading-relaxed">«2 уикенда в месяц» — специальная программа для постоянных гостей со скидкой до 30%.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 5: LOCATIONS -->
+    <!-- ============================================ -->
+    <section id="locations" class="relative py-20 md:py-32 bg-off-white">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-12 reveal-up">
+                <p class="font-accent text-accent-gold text-sm tracking-widest uppercase mb-4">Где мы находимся</p>
+                <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-deep-forest">Наши локации</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Moscow Oblast -->
+                <div class="group relative overflow-hidden rounded-2xl h-[400px] md:h-[500px] cursor-pointer reveal-up delay-1">
+                    <img src="images/location-moscow.png" alt="Локация Urban Nest — леса Московской области" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deep-forest via-deep-forest/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8">
+                        <span class="font-accent text-accent-gold text-sm">6 домов</span>
+                        <h3 class="font-display font-bold text-2xl md:text-3xl text-off-white mt-2 mb-2">Московская область</h3>
+                        <p class="text-off-white/60 text-sm mb-4">Живописные леса в 60–90 минутах от Москвы. Смешанные леса, реки и тишина.</p>
+                        <div class="flex items-center gap-2 text-off-white/80">
+                            <svg class="w-5 h-5 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <span class="font-accent text-sm">~60 мин от МКАД</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leningrad Oblast -->
+                <div class="group relative overflow-hidden rounded-2xl h-[400px] md:h-[500px] cursor-pointer reveal-up delay-2">
+                    <img src="images/location-spb.png" alt="Локация Urban Nest — леса Ленинградской области" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deep-forest via-deep-forest/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8">
+                        <span class="font-accent text-accent-gold text-sm">4 дома</span>
+                        <h3 class="font-display font-bold text-2xl md:text-3xl text-off-white mt-2 mb-2">Ленинградская область</h3>
+                        <p class="text-off-white/60 text-sm mb-4">Карельская природа: озёра, скалы и вековые сосны. Северная магия в каждом вдохе.</p>
+                        <div class="flex items-center gap-2 text-off-white/80">
+                            <svg class="w-5 h-5 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <span class="font-accent text-sm">~90 мин от КАД</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 6: REVIEWS -->
+    <!-- ============================================ -->
+    <section id="reviews" class="relative py-20 md:py-32 bg-warm-sand/20">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12 reveal-up">
+                <div>
+                    <p class="font-accent text-accent-gold text-sm tracking-widest uppercase mb-4">Отзывы</p>
+                    <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-deep-forest">Что говорят<br>наши гости</h2>
+                </div>
+                <div class="flex items-center gap-2 mt-4 md:mt-0">
+                    <div class="flex -space-x-1">
+                        <span class="text-accent-gold text-xl">★★★★★</span>
+                    </div>
+                    <span class="font-accent text-sm text-charcoal/60">4.9 из 5 · 340+ отзывов</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Review 1 -->
+                <div class="bg-off-white rounded-2xl p-8 border border-warm-sand/50 hover:shadow-lg hover:shadow-warm-sand/20 transition-all duration-500 reveal-up delay-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-deep-forest flex items-center justify-center text-off-white font-display font-bold text-lg">А</div>
+                        <div>
+                            <p class="font-accent font-semibold text-charcoal">Анна и Дмитрий</p>
+                            <p class="text-xs text-charcoal/50">Forest Light · Московская обл.</p>
+                        </div>
+                    </div>
+                    <p class="text-charcoal/70 leading-relaxed mb-4">«Мы просто хотели выехать из Москвы на выходные, а в итоге не хотели уезжать. Дом — как с Pinterest, только настоящий. Утром открыли окно и слушали лес минут двадцать.»</p>
+                    <div class="text-accent-gold text-sm">★★★★★</div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-off-white rounded-2xl p-8 border border-warm-sand/50 hover:shadow-lg hover:shadow-warm-sand/20 transition-all duration-500 reveal-up delay-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-moss-green flex items-center justify-center text-off-white font-display font-bold text-lg">М</div>
+                        <div>
+                            <p class="font-accent font-semibold text-charcoal">Максим К.</p>
+                            <p class="text-xs text-charcoal/50">Oak Studio · Московская обл.</p>
+                        </div>
+                    </div>
+                    <p class="text-charcoal/70 leading-relaxed mb-4">«Я фрилансер и взял Oak Studio на неделю для workation. Интернет летает, кофемашина есть, а вместо стены офиса — сосновый лес. Продуктивность x2, стресс — в минус.»</p>
+                    <div class="text-accent-gold text-sm">★★★★★</div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-off-white rounded-2xl p-8 border border-warm-sand/50 hover:shadow-lg hover:shadow-warm-sand/20 transition-all duration-500 reveal-up delay-3">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-accent-gold flex items-center justify-center text-deep-forest font-display font-bold text-lg">Е</div>
+                        <div>
+                            <p class="font-accent font-semibold text-charcoal">Екатерина В.</p>
+                            <p class="text-xs text-charcoal/50">Glass House · Московская обл.</p>
+                        </div>
+                    </div>
+                    <p class="text-charcoal/70 leading-relaxed mb-4">«Glass House — это что-то невероятное. Лежишь в кровати, а вокруг 360° леса. Ночью видно звёзды через стеклянную крышу. Мои сторис собрали рекорд лайков 😅»</p>
+                    <div class="text-accent-gold text-sm">★★★★★</div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-extra hidden lg:block bg-off-white rounded-2xl p-8 border border-warm-sand/50 hover:shadow-lg hover:shadow-warm-sand/20 transition-all duration-500 reveal-up delay-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-deep-forest flex items-center justify-center text-off-white font-display font-bold text-lg">С</div>
+                        <div>
+                            <p class="font-accent font-semibold text-charcoal">Сергей и Ольга</p>
+                            <p class="text-xs text-charcoal/50">Lake View · Ленинградская обл.</p>
+                        </div>
+                    </div>
+                    <p class="text-charcoal/70 leading-relaxed mb-4">«Озеро прямо у дома — это не преувеличение. Утренний кофе на причале, вечером — шашлык на террасе. Баню заказали, и не зря. Вернёмся точно.»</p>
+                    <div class="text-accent-gold text-sm">★★★★★</div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="review-extra hidden lg:block bg-off-white rounded-2xl p-8 border border-warm-sand/50 hover:shadow-lg hover:shadow-warm-sand/20 transition-all duration-500 reveal-up delay-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-moss-green flex items-center justify-center text-off-white font-display font-bold text-lg">И</div>
+                        <div>
+                            <p class="font-accent font-semibold text-charcoal">Ирина Л.</p>
+                            <p class="text-xs text-charcoal/50">Moss Retreat · Московская обл.</p>
+                        </div>
+                    </div>
+                    <p class="text-charcoal/70 leading-relaxed mb-4">«Взяла Moss Retreat на 3 дня для детокса. Ни телевизора, ни Wi-Fi (по запросу). Зато книги, тишина и горячая ванна. Лучшая инвестиция в себя за год.»</p>
+                    <div class="text-accent-gold text-sm">★★★★★</div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="review-extra hidden lg:block bg-off-white rounded-2xl p-8 border border-warm-sand/50 hover:shadow-lg hover:shadow-warm-sand/20 transition-all duration-500 reveal-up delay-3">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-accent-gold flex items-center justify-center text-deep-forest font-display font-bold text-lg">П</div>
+                        <div>
+                            <p class="font-accent font-semibold text-charcoal">Павел Д.</p>
+                            <p class="text-xs text-charcoal/50">Nordic Shell · Ленинградская обл.</p>
+                        </div>
+                    </div>
+                    <p class="text-charcoal/70 leading-relaxed mb-4">«Минималистичный, но очень стильный. Не ожидал, что в 28 квадратах можно так классно всё уместить. Жена уже бронирует следующие выходные.»</p>
+                    <div class="text-accent-gold text-sm">★★★★☆</div>
+                </div>
+            </div>
+
+            <!-- Show More Button (mobile only) -->
+            <div class="mt-8 text-center lg:hidden" id="reviews-show-more">
+                <button onclick="document.querySelectorAll('.review-extra').forEach(el => el.classList.remove('hidden')); document.getElementById('reviews-show-more').style.display='none';" class="inline-flex items-center gap-2 border border-deep-forest/20 text-deep-forest font-accent text-sm px-6 py-3 rounded-full hover:bg-deep-forest hover:text-off-white transition-all duration-300">
+                    Показать ещё отзывы
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 7: BOOKING -->
+    <!-- ============================================ -->
+    <section id="booking" class="relative py-20 md:py-32 bg-deep-forest">
+        <div class="max-w-3xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-12 reveal-up">
+                <p class="font-accent text-accent-gold text-sm tracking-widest uppercase mb-4">Бронирование</p>
+                <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-off-white mb-4">Забронируйте свой <span class="text-accent-gold">побег</span></h2>
+                <p class="text-off-white/50 text-lg">Оставьте заявку, и мы свяжемся с вами в течение часа</p>
+            </div>
+
+            <form id="booking-form" class="bg-off-white/5 backdrop-blur border border-off-white/10 rounded-2xl p-8 md:p-10 reveal-up delay-1" novalidate>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <!-- Name -->
+                    <div>
+                        <label for="name" class="block font-accent text-sm text-off-white/70 mb-2">Ваше имя *</label>
+                        <input type="text" id="name" name="name" required placeholder="Как вас зовут?" class="w-full bg-off-white/5 border border-off-white/20 rounded-xl px-5 py-4 text-off-white placeholder-off-white/30 font-body focus:border-accent-gold focus:outline-none transition-colors duration-300">
+                    </div>
+                    <!-- Phone / Email -->
+                    <div>
+                        <label for="contact" class="block font-accent text-sm text-off-white/70 mb-2">Телефон или Email *</label>
+                        <input type="text" id="contact" name="contact" required placeholder="+7 (___) ___-__-__ или email" class="w-full bg-off-white/5 border border-off-white/20 rounded-xl px-5 py-4 text-off-white placeholder-off-white/30 font-body focus:border-accent-gold focus:outline-none transition-colors duration-300">
+                    </div>
+                    <!-- Date -->
+                    <div>
+                        <label for="date" class="block font-accent text-sm text-off-white/70 mb-2">Дата заезда *</label>
+                        <input type="date" id="date" name="date" required class="w-full bg-off-white/5 border border-off-white/20 rounded-xl px-5 py-4 text-off-white font-body focus:border-accent-gold focus:outline-none transition-colors duration-300 date-input">
+                    </div>
+                    <!-- Guests -->
+                    <div>
+                        <label for="guests" class="block font-accent text-sm text-off-white/70 mb-2">Количество гостей</label>
+                        <select id="guests" name="guests" class="w-full bg-off-white/5 border border-off-white/20 rounded-xl px-5 py-4 text-off-white font-body focus:border-accent-gold focus:outline-none transition-colors duration-300 appearance-none">
+                            <option value="1">1 гость</option>
+                            <option value="2" selected>2 гостя</option>
+                            <option value="3">3 гостя</option>
+                        </select>
+                    </div>
+                    <!-- Region -->
+                    <div>
+                        <label for="region" class="block font-accent text-sm text-off-white/70 mb-2">Регион</label>
+                        <select id="region" name="region" class="w-full bg-off-white/5 border border-off-white/20 rounded-xl px-5 py-4 text-off-white font-body focus:border-accent-gold focus:outline-none transition-colors duration-300 appearance-none">
+                            <option value="">Любой регион</option>
+                            <option value="moscow">Московская область</option>
+                            <option value="spb">Ленинградская область</option>
+                        </select>
+                    </div>
+                    <!-- House -->
+                    <div>
+                        <label for="house" class="block font-accent text-sm text-off-white/70 mb-2">Предпочитаемый дом</label>
+                        <select id="house" name="house" class="w-full bg-off-white/5 border border-off-white/20 rounded-xl px-5 py-4 text-off-white font-body focus:border-accent-gold focus:outline-none transition-colors duration-300 appearance-none">
+                            <option value="">Любой дом</option>
+                            <optgroup label="Московская область">
+                                <option value="forest-light">Forest Light — 8 900 ₽</option>
+                                <option value="glass-house">Glass House — 12 500 ₽</option>
+                                <option value="pine-cabin">Pine Cabin — 7 500 ₽</option>
+                                <option value="horizon">Horizon — 10 900 ₽</option>
+                                <option value="moss-retreat">Moss Retreat — 9 200 ₽</option>
+                                <option value="oak-studio">Oak Studio — 11 800 ₽</option>
+                            </optgroup>
+                            <optgroup label="Ленинградская область">
+                                <option value="lake-view">Lake View — 11 500 ₽</option>
+                                <option value="birch-house">Birch House — 8 900 ₽</option>
+                                <option value="nordic-shell">Nordic Shell — 9 800 ₽</option>
+                                <option value="aurora-loft">Aurora Loft — 13 200 ₽</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Message -->
+                <div class="mb-8">
+                    <label for="message" class="block font-accent text-sm text-off-white/70 mb-2">Пожелания</label>
+                    <textarea id="message" name="message" rows="3" placeholder="Расскажите о ваших пожеланиях: баня, завтрак, особый повод..." class="w-full bg-off-white/5 border border-off-white/20 rounded-xl px-5 py-4 text-off-white placeholder-off-white/30 font-body focus:border-accent-gold focus:outline-none transition-colors duration-300 resize-none"></textarea>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" id="booking-submit" class="w-full bg-accent-gold text-deep-forest font-accent font-bold text-lg px-8 py-5 rounded-full hover:bg-accent-gold/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-accent-gold/20 active:scale-[0.98]">
+                    Отправить заявку
+                </button>
+                <p class="text-center text-off-white/30 text-xs mt-4">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</p>
+
+                <!-- Success message -->
+                <div id="booking-success" class="hidden text-center py-8">
+                    <div class="w-16 h-16 rounded-full bg-accent-gold/20 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-2xl text-off-white mb-2">Заявка отправлена!</h3>
+                    <p class="text-off-white/60">Мы свяжемся с вами в течение часа. Ожидайте звонок или сообщение.</p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 8: BLOG (SEO) -->
+    <!-- ============================================ -->
+    <section id="blog" class="relative py-20 md:py-32 bg-off-white">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12 reveal-up">
+                <div>
+                    <p class="font-accent text-accent-gold text-sm tracking-widest uppercase mb-4">Журнал</p>
+                    <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-deep-forest">Вдохновение<br>для побега</h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Blog 1 -->
+                <article class="group cursor-pointer reveal-up delay-1">
+                    <div class="overflow-hidden rounded-2xl mb-5 aspect-[4/3]">
+                        <img src="images/blog-recharge.png" alt="Как перезагрузиться за выходные — статья Urban Nest" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <span class="font-accent text-xs text-accent-gold uppercase tracking-wider">Лайфстайл</span>
+                    <h3 class="font-display font-semibold text-xl text-deep-forest mt-2 mb-3 group-hover:text-accent-gold transition-colors duration-300">Как перезагрузиться за выходные</h3>
+                    <p class="text-charcoal/60 text-sm leading-relaxed">5 проверенных способов восстановить энергию за 48 часов. Без перелётов и виз.</p>
+                </article>
+
+                <!-- Blog 2 -->
+                <article class="group cursor-pointer reveal-up delay-2">
+                    <div class="overflow-hidden rounded-2xl mb-5 aspect-[4/3]">
+                        <img src="images/blog-escape.png" alt="5 причин уехать из города — статья Urban Nest" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <span class="font-accent text-xs text-accent-gold uppercase tracking-wider">Мнение</span>
+                    <h3 class="font-display font-semibold text-xl text-deep-forest mt-2 mb-3 group-hover:text-accent-gold transition-colors duration-300">5 причин уехать из города</h3>
+                    <p class="text-charcoal/60 text-sm leading-relaxed">Почему регулярные побеги на природу — это не роскошь, а необходимость для горожан.</p>
+                </article>
+
+                <!-- Blog 3 -->
+                <article class="group cursor-pointer reveal-up delay-3">
+                    <div class="overflow-hidden rounded-2xl mb-5 aspect-[4/3]">
+                        <img src="images/blog-workation.png" alt="Workation — как работать из леса — статья Urban Nest" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <span class="font-accent text-xs text-accent-gold uppercase tracking-wider">Workation</span>
+                    <h3 class="font-display font-semibold text-xl text-deep-forest mt-2 mb-3 group-hover:text-accent-gold transition-colors duration-300">Workation — как работать из леса</h3>
+                    <p class="text-charcoal/60 text-sm leading-relaxed">Гид по удалённой работе из капсульного дома: Wi-Fi, продуктивность и закаты бонусом.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================ -->
+    <footer class="bg-deep-forest py-16 md:py-20">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
+                <!-- Brand -->
+                <div class="lg:col-span-1">
+                    <a href="#" class="font-display font-bold text-2xl text-off-white">Urban<span class="text-accent-gold">Nest</span></a>
+                    <p class="text-off-white/40 text-sm mt-4 leading-relaxed">Дизайнерские капсульные дома на природе. Сбежать из города за 60 минут.</p>
+                    <!-- Social Links -->
+                    <div class="flex gap-4 mt-6">
+                        <a href="https://t.me/urbannest_ru" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-off-white/10 flex items-center justify-center text-off-white/60 hover:bg-accent-gold hover:text-deep-forest transition-all duration-300" aria-label="Telegram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                        </a>
+                        <a href="https://vk.com/urbannest" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-off-white/10 flex items-center justify-center text-off-white/60 hover:bg-accent-gold hover:text-deep-forest transition-all duration-300" aria-label="VK">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.525-2.049-1.714-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.12-5.339-3.202-2.17-3.048-2.763-5.339-2.763-5.815 0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.678.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.27-1.422 2.18-3.61 2.18-3.61.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.795.779 1.203 1.253.745.847 1.32 1.558 1.473 2.049.17.49-.085.744-.576.744z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div>
+                    <h4 class="font-accent font-semibold text-off-white mb-4">Навигация</h4>
+                    <ul class="space-y-3 text-sm text-off-white/50">
+                        <li><a href="#about" class="hover:text-accent-gold transition-colors duration-300">О проекте</a></li>
+                        <li><a href="#houses" class="hover:text-accent-gold transition-colors duration-300">Дома</a></li>
+                        <li><a href="#experience" class="hover:text-accent-gold transition-colors duration-300">Опыт</a></li>
+                        <li><a href="#locations" class="hover:text-accent-gold transition-colors duration-300">Локации</a></li>
+                        <li><a href="#reviews" class="hover:text-accent-gold transition-colors duration-300">Отзывы</a></li>
+                        <li><a href="#blog" class="hover:text-accent-gold transition-colors duration-300">Журнал</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-accent font-semibold text-off-white mb-4">Контакты</h4>
+                    <ul class="space-y-3 text-sm text-off-white/50">
+                        <li>
+                            <a href="tel:+74953742816" class="hover:text-accent-gold transition-colors duration-300">+7 (495) 374-28-16</a>
+                        </li>
+                        <li>
+                            <a href="mailto:hello@urbannest.ru" class="hover:text-accent-gold transition-colors duration-300">hello@urbannest.ru</a>
+                        </li>
+                        <li>
+                            <a href="https://t.me/+79265418320" class="hover:text-accent-gold transition-colors duration-300">Telegram: +7 (926) 541-83-20</a>
+                        </li>
+                        <li class="text-off-white/30">Поддержка: support@urbannest.ru</li>
+                    </ul>
+                </div>
+
+                <!-- Working Hours -->
+                <div>
+                    <h4 class="font-accent font-semibold text-off-white mb-4">Время работы</h4>
+                    <ul class="space-y-3 text-sm text-off-white/50">
+                        <li>
+                            <span class="text-off-white/30">Офис</span><br>
+                            Пн–Пт: 10:00 – 19:00
+                        </li>
+                        <li>
+                            <span class="text-off-white/30">Поддержка гостей</span><br>
+                            Ежедневно: 8:00 – 23:00
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="border-t border-off-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-off-white/30 text-sm font-accent">© 2026 Urban Nest. Все права защищены.</p>
+                <p class="text-off-white/30 text-xs">ИНН 7703XXXXXX · ОГРН 1177XXXXXXXXX</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- House Detail Modal -->
+    <div id="house-modal" class="fixed inset-0 z-[60] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="absolute inset-0 bg-charcoal/80 backdrop-blur-sm" id="modal-overlay"></div>
+        <div class="relative bg-off-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300" id="modal-content">
+            <button id="modal-close" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-deep-forest/10 flex items-center justify-center hover:bg-deep-forest/20 transition-colors z-10" aria-label="Закрыть">
+                <svg class="w-5 h-5 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <div id="modal-image" class="w-full aspect-video rounded-t-2xl overflow-hidden bg-warm-sand"></div>
+            <div class="p-8">
+                <h3 id="modal-title" class="font-display font-bold text-2xl text-deep-forest mb-2"></h3>
+                <p id="modal-subtitle" class="text-charcoal/60 text-sm mb-4"></p>
+                <p id="modal-description" class="text-charcoal/70 leading-relaxed mb-6"></p>
+                <div class="flex items-center justify-between border-t border-warm-sand/50 pt-6">
+                    <p id="modal-price" class="font-accent font-bold text-2xl text-accent-gold"></p>
+                    <a href="#booking" id="modal-book" class="inline-flex items-center gap-2 bg-deep-forest text-off-white font-accent font-semibold px-6 py-3 rounded-full hover:bg-deep-forest/90 transition-all duration-300">
+                        Забронировать
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

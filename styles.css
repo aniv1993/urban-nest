@@ -1,0 +1,324 @@
+/* ============================================ */
+/* URBAN NEST — Custom Styles                   */
+/* Concept B: Bold Disruptor                    */
+/* ============================================ */
+
+/* ---- Base ---- */
+html {
+    scroll-behavior: auto; /* Lenis handles smooth scroll now */
+    scroll-padding-top: 80px;
+}
+
+/* ---- Custom Cursor ---- */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    border-radius: 50%;
+}
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background: #1A3329;
+    border: 1.5px solid #fff;
+    box-shadow: 0 0 8px rgba(0,0,0,0.25);
+    transition: transform 0.15s ease, opacity 0.3s ease;
+}
+.cursor-ring {
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid rgba(26, 51, 41, 0.4);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.3);
+    margin-left: -17px;
+    margin-top: -17px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.3s ease,
+                width 0.3s ease,
+                height 0.3s ease,
+                opacity 0.3s ease;
+}
+.cursor-hover .cursor-ring {
+    width: 60px;
+    height: 60px;
+    margin-left: -27px;
+    margin-top: -27px;
+    border-color: rgba(201, 169, 110, 0.8);
+}
+.cursor-hover .cursor-dot {
+    transform: scale(2.5);
+    opacity: 0.6;
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none), (max-width: 768px) {
+    .custom-cursor {
+        display: none !important;
+    }
+}
+
+/* Hide default cursor on desktop when custom is active */
+@media (hover: hover) and (min-width: 769px) {
+    * {
+        cursor: none !important;
+    }
+}
+
+::selection {
+    background-color: #C9A96E;
+    color: #1A3329;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #1A3329;
+}
+::-webkit-scrollbar-thumb {
+    background: #C9A96E;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #b8944f;
+}
+
+/* Hide scrollbar for experience section */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* ---- Header ---- */
+#header {
+    background: transparent;
+}
+#header.scrolled {
+    background: rgba(26, 51, 41, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+/* Hide header background when mobile menu is open */
+#header.menu-open,
+#header.menu-open.scrolled {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+}
+#header.scrolled nav {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+/* ---- Menu Toggle Animation ---- */
+#menu-toggle.active .menu-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+#menu-toggle.active .menu-line:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+#menu-toggle.active .menu-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ---- Mobile Menu ---- */
+#mobile-menu.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ---- Hero Parallax ---- */
+.hero-parallax {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* ---- Region Tabs ---- */
+.region-tab {
+    background: transparent;
+    color: rgba(44, 44, 44, 0.5);
+    border: 1px solid rgba(44, 44, 44, 0.15);
+}
+.region-tab:hover {
+    color: #2C2C2C;
+    border-color: rgba(44, 44, 44, 0.3);
+}
+.region-tab.active {
+    background: #1A3329;
+    color: #F8F5F0;
+    border-color: #1A3329;
+}
+
+/* ---- House Cards Hover ---- */
+.house-card {
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.5s ease;
+}
+.house-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(26, 51, 41, 0.2);
+}
+
+/* ---- Form Inputs ---- */
+.date-input::-webkit-calendar-picker-indicator {
+    filter: invert(0.7);
+    cursor: pointer;
+}
+
+select option {
+    background: #1A3329;
+    color: #F8F5F0;
+}
+
+select optgroup {
+    background: #2D4A3E;
+    color: #C9A96E;
+    font-weight: 600;
+}
+
+/* ---- Modal ---- */
+#house-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+#house-modal.active #modal-content {
+    transform: scale(1);
+}
+
+/* ---- Reveal Animations ---- */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delays */
+.delay-1 { transition-delay: 0.15s; }
+.delay-2 { transition-delay: 0.3s; }
+.delay-3 { transition-delay: 0.45s; }
+.delay-4 { transition-delay: 0.6s; }
+
+/* ---- Experience Card Interactions ---- */
+.experience-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                border-color 0.5s ease,
+                box-shadow 0.5s ease,
+                background 0.5s ease;
+    cursor: default;
+}
+
+/* Gold top line */
+.experience-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #C9A96E, transparent);
+    opacity: 0;
+    transition: left 0.5s ease, right 0.5s ease, opacity 0.4s ease;
+}
+.experience-card:hover::before {
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+/* Card lift + glow */
+.experience-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(201, 169, 110, 0.25);
+    box-shadow: 0 16px 40px rgba(201, 169, 110, 0.08);
+}
+
+/* Icon container */
+.experience-card .exp-icon {
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                background 0.5s ease,
+                box-shadow 0.5s ease;
+}
+.experience-card:hover .exp-icon {
+    transform: scale(1.1);
+    background: rgba(201, 169, 110, 0.2);
+    box-shadow: 0 0 20px rgba(201, 169, 110, 0.15);
+}
+
+/* Text brightness on hover */
+.experience-card:hover h3 {
+    color: #C9A96E;
+    transition: color 0.4s ease;
+}
+.experience-card:hover p {
+    color: rgba(248, 245, 240, 0.7);
+    transition: color 0.4s ease;
+}
+
+/* ---- Blog Card ---- */
+article.group:hover h3 {
+    color: #C9A96E;
+}
+
+/* ---- Loading Shimmer ---- */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+.shimmer {
+    background: linear-gradient(90deg, #e0d8cc 25%, #ebe4d8 50%, #e0d8cc 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* ---- Pulse for CTA ---- */
+@keyframes pulse-gold {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.4); }
+    50% { box-shadow: 0 0 0 12px rgba(201, 169, 110, 0); }
+}
+
+/* ---- Responsive fixes ---- */
+@media (max-width: 768px) {
+    .reveal-up {
+        transform: translateY(20px);
+    }
+
+    /* Tighter grid on mobile */
+    #houses-moscow,
+    #houses-spb {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* Stack hero properly */
+    #hero {
+        min-height: auto;
+    }
+}
+
+/* ---- Print styles ---- */
+@media print {
+    #header, #mobile-menu, #house-modal {
+        display: none;
+    }
+    .reveal-up {
+        opacity: 1;
+        transform: none;
+    }
+}
