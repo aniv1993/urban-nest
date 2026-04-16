@@ -449,6 +449,77 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { passive: true });
 
+
+    // ---- 11. Dynamic Blog Posts ---- //
+    async function loadBlogPosts() {
+        const container = document.getElementById('blog-posts');
+        if (!container) return;
+
+        try {
+            const res = await fetch('/api/posts');
+            if (!res.ok) throw new Error('Failed to fetch');
+            const posts = await res.json();
+
+            // Filter published only, sort by date desc
+            const published = posts
+                .filter(p => p.published)
+                .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            if (published.length === 0) {
+                container.innerHTML = '<p class="text-charcoal/50 text-center col-span-3 py-12">Статьи скоро появятся</p>';
+                return;
+            }
+
+            container.innerHTML = published.map((post, i) => {
+                const delayClass = `delay-${(i % 3) + 1}`;
+                return `
+                    <article class="group cursor-pointer reveal-up ${delayClass}">
+                        <div class="overflow-hidden rounded-2xl mb-5 aspect-[4/3]">
+                            <img src="${post.image}" alt="${escapeHtml(post.title)} — статья Urban Nest"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                 loading="lazy">
+                        </div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="font-accent text-xs text-accent-gold uppercase tracking-wider">${escapeHtml(post.category)}</span>
+                            <span class="text-charcoal/30 text-xs">·</span>
+                            <time datetime="${post.date}" class="font-accent text-xs text-charcoal/50">${formatBlogDate(post.date)}</time>
+                        </div>
+                        <h3 class="font-display font-semibold text-xl text-deep-forest mb-3 group-hover:text-accent-gold transition-colors duration-300">${escapeHtml(post.title)}</h3>
+                        <p class="text-charcoal/60 text-sm leading-relaxed">${escapeHtml(post.excerpt)}</p>
+                    </article>
+                `;
+            }).join('');
+
+            // Re-observe new elements for reveal animation
+            container.querySelectorAll('.reveal-up').forEach(el => {
+                revealObserver.observe(el);
+            });
+
+        } catch (err) {
+            // If API unavailable, keep shimmer placeholders
+            console.warn('Blog posts: API unavailable, keeping placeholders');
+        }
+    }
+
+    function formatBlogDate(dateStr) {
+        if (!dateStr) return '';
+        const months = [
+            'января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
+            'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'
+        ];
+        const d = new Date(dateStr + 'T00:00:00');
+        return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+    }
+
+    function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str || '';
+        return div.innerHTML;
+    }
+
+    // Load blog posts
+    loadBlogPosts();
+
 });
 
 // ---- Shake Animation (for form validation) ---- //

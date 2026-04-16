@@ -1,0 +1,29 @@
+[
+  {
+    "id": "post-001",
+    "title": "Как перезагрузиться за выходные",
+    "category": "Лайфстайл",
+    "date": "2026-04-10",
+    "excerpt": "5 проверенных способов восстановить энергию за 48 часов. Без перелётов и виз.",
+    "image": "images/blog-recharge.png",
+    "published": true
+  },
+  {
+    "id": "post-002",
+    "title": "5 причин уехать из города",
+    "category": "Мнение",
+    "date": "2026-03-28",
+    "excerpt": "Почему регулярные побеги на природу — это не роскошь, а необходимость для горожан.",
+    "image": "images/blog-escape.png",
+    "published": true
+  },
+  {
+    "id": "post-003",
+    "title": "Workation — как работать из леса",
+    "category": "Workation",
+    "date": "2026-03-15",
+    "excerpt": "Гид по удалённой работе из капсульного дома: Wi-Fi, продуктивность и закаты бонусом.",
+    "image": "images/blog-workation.png",
+    "published": true
+  }
+]

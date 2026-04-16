@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Nest — Админ-панель</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Fonts (same as landing) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+
+    <!-- ============================== -->
+    <!-- LOGIN SCREEN                   -->
+    <!-- ============================== -->
+    <div id="login-screen" class="screen active">
+        <div class="login-container">
+            <div class="login-logo">Urban<span>Nest</span></div>
+            <p class="login-subtitle">Панель управления</p>
+
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <label for="login-input">Логин</label>
+                    <input type="text" id="login-input" placeholder="admin" autocomplete="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password-input">Пароль</label>
+                    <input type="password" id="password-input" placeholder="••••••••" autocomplete="current-password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full" id="login-btn">
+                    <span>Войти</span>
+                    <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </button>
+                <p id="login-error" class="error-text hidden"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ============================== -->
+    <!-- DASHBOARD SCREEN               -->
+    <!-- ============================== -->
+    <div id="dashboard-screen" class="screen">
+
+        <!-- Top Bar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <a href="/" target="_blank" class="topbar-logo">Urban<span>Nest</span></a>
+                <span class="topbar-badge">CMS</span>
+            </div>
+            <div class="topbar-right">
+                <a href="/" target="_blank" class="btn btn-ghost btn-sm">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    Сайт
+                </a>
+                <button id="logout-btn" class="btn btn-ghost btn-sm">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                    Выйти
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Posts List View -->
+            <div id="posts-list-view">
+                <div class="section-header">
+                    <div>
+                        <h1 class="section-title">Журнал</h1>
+                        <p class="section-subtitle">Управление статьями блога</p>
+                    </div>
+                    <button id="new-post-btn" class="btn btn-primary">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                        Новая статья
+                    </button>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <span class="stat-number" id="stat-total">0</span>
+                        <span class="stat-label">Всего</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="stat-published">0</span>
+                        <span class="stat-label">Опубликовано</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="stat-drafts">0</span>
+                        <span class="stat-label">Черновики</span>
+                    </div>
+                </div>
+
+                <!-- Posts Table -->
+                <div class="posts-table-wrapper">
+                    <table class="posts-table" id="posts-table">
+                        <thead>
+                            <tr>
+                                <th class="th-image">Обложка</th>
+                                <th class="th-title">Статья</th>
+                                <th class="th-category">Категория</th>
+                                <th class="th-date">Дата</th>
+                                <th class="th-status">Статус</th>
+                                <th class="th-actions">Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody id="posts-tbody">
+                            <!-- Dynamic rows -->
+                        </tbody>
+                    </table>
+                    <div id="posts-empty" class="empty-state hidden">
+                        <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" opacity="0.3"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V9a2 2 0 012-2h2a2 2 0 012 2v9a2 2 0 01-2 2h-2z"/></svg>
+                        <p>Статей пока нет</p>
+                        <button class="btn btn-primary btn-sm" onclick="showEditor()">Создать первую</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post Editor View -->
+            <div id="post-editor-view" class="hidden">
+                <div class="section-header">
+                    <div>
+                        <button id="back-to-list" class="btn-back">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                            Назад к списку
+                        </button>
+                        <h1 class="section-title" id="editor-title">Новая статья</h1>
+                    </div>
+                    <div class="editor-actions">
+                        <button id="save-draft-btn" class="btn btn-ghost">Сохранить как черновик</button>
+                        <button id="publish-btn" class="btn btn-primary">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            Опубликовать
+                        </button>
+                    </div>
+                </div>
+
+                <form id="post-form" class="editor-form">
+                    <input type="hidden" id="post-id">
+
+                    <div class="editor-grid">
+                        <!-- Left: Main fields -->
+                        <div class="editor-main">
+                            <div class="form-group">
+                                <label for="post-title">Заголовок *</label>
+                                <input type="text" id="post-title" placeholder="Введите заголовок статьи" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="post-excerpt">Краткое описание *</label>
+                                <textarea id="post-excerpt" rows="4" placeholder="Краткое описание для карточки (1–2 предложения)" required></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Right: Sidebar -->
+                        <div class="editor-sidebar">
+                            <div class="form-group">
+                                <label for="post-category">Категория *</label>
+                                <input type="text" id="post-category" placeholder="Лайфстайл, Workation, Мнение..." required list="categories-list">
+                                <datalist id="categories-list">
+                                    <option value="Лайфстайл">
+                                    <option value="Мнение">
+                                    <option value="Workation">
+                                    <option value="Гид">
+                                    <option value="Новости">
+                                    <option value="Digital Detox">
+                                </datalist>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="post-date">Дата публикации *</label>
+                                <input type="date" id="post-date" required>
+                            </div>
+
+                            <!-- Image Upload -->
+                            <div class="form-group">
+                                <label>Обложка</label>
+                                <div class="upload-area" id="upload-area">
+                                    <input type="file" id="image-input" accept="image/jpeg,image/png,image/webp,image/avif" hidden>
+                                    <div id="upload-placeholder" class="upload-placeholder">
+                                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                        <p>Перетащите или <span>выберите файл</span></p>
+                                        <small>JPG, PNG, WebP · до 5 МБ</small>
+                                    </div>
+                                    <div id="upload-preview" class="upload-preview hidden">
+                                        <img id="preview-img" src="" alt="Превью">
+                                        <button type="button" id="remove-image-btn" class="remove-image-btn" title="Удалить">
+                                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="post-image-path">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+        <span id="toast-icon" class="toast-icon"></span>
+        <span id="toast-message"></span>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="delete-modal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <h3>Удалить статью?</h3>
+            <p>Это действие нельзя отменить. Статья и её изображение будут удалены навсегда.</p>
+            <div class="modal-actions">
+                <button id="delete-cancel" class="btn btn-ghost">Отмена</button>
+                <button id="delete-confirm" class="btn btn-danger">Удалить</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/admin/admin.js"></script>
+</body>
+</html>
