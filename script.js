@@ -455,24 +455,37 @@ document.addEventListener('DOMContentLoaded', () => {
         const container = document.getElementById('blog-posts');
         if (!container) return;
 
+        let posts = [];
+
+        // Try API first (local server), then fall back to static JSON (GitHub Pages)
         try {
             const res = await fetch('/api/posts');
-            if (!res.ok) throw new Error('Failed to fetch');
-            const posts = await res.json();
-
-            // Filter published only, sort by date desc
-            const published = posts
-                .filter(p => p.published)
-                .sort((a, b) => new Date(b.date) - new Date(a.date));
-
-            if (published.length === 0) {
-                container.innerHTML = '<p class="text-charcoal/50 text-center col-span-3 py-12">Статьи скоро появятся</p>';
+            if (!res.ok) throw new Error('API unavailable');
+            posts = await res.json();
+        } catch (err) {
+            try {
+                const res = await fetch('data/posts.json');
+                if (!res.ok) throw new Error('JSON unavailable');
+                posts = await res.json();
+            } catch (err2) {
+                console.warn('Blog posts: no data source available');
                 return;
             }
+        }
 
-            container.innerHTML = published.map((post, i) => {
-                const delayClass = `delay-${(i % 3) + 1}`;
-                return `
+        // Filter published only, sort by date desc
+        const published = posts
+            .filter(p => p.published)
+            .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        if (published.length === 0) {
+            container.innerHTML = '<p class="text-charcoal/50 text-center col-span-3 py-12">Статьи скоро появятся</p>';
+            return;
+        }
+
+        container.innerHTML = published.map((post, i) => {
+            const delayClass = `delay-${(i % 3) + 1}`;
+            return `
                     <article class="group cursor-pointer reveal-up ${delayClass}">
                         <div class="overflow-hidden rounded-2xl mb-5 aspect-[4/3]">
                             <img src="${post.image}" alt="${escapeHtml(post.title)} — статья Urban Nest"
@@ -488,17 +501,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p class="text-charcoal/60 text-sm leading-relaxed">${escapeHtml(post.excerpt)}</p>
                     </article>
                 `;
-            }).join('');
+        }).join('');
 
-            // Re-observe new elements for reveal animation
-            container.querySelectorAll('.reveal-up').forEach(el => {
-                revealObserver.observe(el);
-            });
-
-        } catch (err) {
-            // If API unavailable, keep shimmer placeholders
-            console.warn('Blog posts: API unavailable, keeping placeholders');
-        }
+        // Re-observe new elements for reveal animation
+        container.querySelectorAll('.reveal-up').forEach(el => {
+            revealObserver.observe(el);
+        });
     }
 
     function formatBlogDate(dateStr) {
